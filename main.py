@@ -11,20 +11,19 @@ def main():
     file_manager.ngram_populate()
     query = raw_input('Insert name: ')
     distance = raw_input('Insert max distance: ')
-    n = int(raw_input('Insert dimension of n-grams [2/3]: '))
-    assert n == 2 or n == 3
 
     time = timer()
     edit_result = test.test_edit(query, distance)
     time = timer() - time
     print 'Using simple Edit Distance:', time
-    print edit_result
+    print edit_result, len(edit_result)
 
-    time = timer()
-    ngram_result = test.test_ngram(query, distance, n)
-    time = timer() - time
-    print 'Using Edit Distance with n-grams: ', time
-    print ngram_result
+    for n in xrange(2, 4):
+        time = timer()
+        ngram_result = test.test_ngram(query, distance, n)
+        time = timer() - time
+        print 'Using Edit Distance with %d-grams: %g' % (n, time)
+        print ngram_result, len(ngram_result)
 
 
 if __name__ == '__main__':

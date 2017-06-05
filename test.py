@@ -14,6 +14,7 @@ def test_edit(query, distance):
 
 
 def test_ngram(query, distance, n):
+    assert n == 2 or n == 3
     ngram_query = []
     # Divide name in ngrams
     if n == 2:
