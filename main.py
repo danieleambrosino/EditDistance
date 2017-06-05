@@ -10,7 +10,7 @@ assert version_info[0] == 2 and version_info[1] == 7
 def main():
     file_manager.ngram_populate()
     query = raw_input('Insert name: ')
-    distance = raw_input('Insert max distance: ')
+    distance = int(raw_input('Insert max distance: '))
 
     time = timer()
     edit_result = test.test_edit(query, distance)

@@ -8,7 +8,7 @@ def test_edit(query, distance):
         for i in names:
             name = i[:len(i) - 1]
             m = edit_distance.edit_distance(query, name)
-            if m <= int(distance):
+            if m <= distance:
                 result.append(name)
         return result
 
@@ -32,7 +32,7 @@ def test_ngram(query, distance, n):
         for w in words:
             name = w[:len(w) - 1]
             edit_distance_result = edit_distance.edit_distance(query, name)
-            if edit_distance_result <= int(distance):
+            if edit_distance_result <= distance:
                 if name not in result:
                     result.append(name)
         words.close()
